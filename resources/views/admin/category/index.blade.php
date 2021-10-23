@@ -9,25 +9,45 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="card">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ session('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <div class="card-header">All Category</div>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">E-mail</th>
+                                <th scope="col">SL No#</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">User </th>
                                 <th scope="col">Created-At</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <?php $i = 0; ?>
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <th>{{ ++$i }}</th>
+                                    <td>{{ $category->category_name }}</td>
+                                    <td>{{ $category->user->name }}</td>
+                                    <td>
+                                        @if ($category->created_at == null)
+                                            <span class="text-danger">No Data Set</span>
+                                        @else
+                                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    <div class="container pb-3">
+                        {{ $categories->links() }}
+                    </div>
                 </div>
             </div>
 
