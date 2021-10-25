@@ -25,6 +25,7 @@
                                 <th scope="col">Category Name</th>
                                 <th scope="col">User </th>
                                 <th scope="col">Created-At</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,6 +41,13 @@
                                         @else
                                             {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
                                         @endif
+                                    </td>
+                                    <td colspan="2">
+                                        <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-small btn-primary">Edit</a>
+                                        <a href="{{ url('category/softDelete/'.$category->id) }}" class="btn btn-small btn-danger">Delete</a>
+                                        {{-- <form action="{{ url('category/delete/'.$category->id) }}" method="post">
+                                            <button type="submit" class="btn-sm btn-danger">Delete</a>
+                                        </form> --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -74,7 +82,59 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">Trash List</div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">SL No#</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">User </th>
+                                <th scope="col">Created-At</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 0; ?>
+                            @foreach ($trashCat as $category)
+                                <tr>
+                                    <th>{{ ++$i }}</th>
+                                    <td>{{ $category->category_name }}</td>
+                                    <td>{{ $category->user->name }}</td>
+                                    <td>
+                                        @if ($category->created_at == null)
+                                            <span class="text-danger">No Data Set</span>
+                                        @else
+                                            {{ Carbon\Carbon::parse($category->created_at)->diffForHumans() }}
+                                        @endif
+                                    </td>
+                                    <td colspan="2">
+                                        <a href="{{ url('category/restore/'.$category->id) }}" class="btn btn-small btn-primary">Restore</a>
+                                        <a href="{{ url('category/pdelete/'.$category->id) }}" class="btn btn-small btn-danger">P. Delete</a>
+                                        {{-- <form action="{{ url('category/delete/'.$category->id) }}" method="post">
+                                            <button type="submit" class="btn-sm btn-danger">Delete</a>
+                                        </form> --}}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div class="container pb-3">
+                        {{ $trashCat->links() }}
+                    </div>
+                </div>
+            </div>
+
 
         </div>
+
+
+
     </div>
 </x-app-layout>

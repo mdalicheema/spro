@@ -38,13 +38,13 @@ Route::get('/about', function () {
 })->middleware('age');
 
 Route::middleware('lang')->group(function () {
-    Route::get('/contact', function(){
+    Route::get('/contact', function () {
         return view('midd.contact');
     });
-    Route::get('/products', function(){
+    Route::get('/products', function () {
         return view('midd.products');
     });
-    Route::get('/list-items', function(){
+    Route::get('/list-items', function () {
         return view('midd.list');
     });
 });
@@ -58,4 +58,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //Category Controller
 Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
-Route::post('/catefgory/add', [CategoryController::class, 'addCat'])->name('store.category');
+Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
+Route::get('/category/edit/{id}', [CategoryController::class, 'editCat']);
+Route::get('/category/update/{id}', [CategoryController::class, 'updateCat']);
+Route::get('/category/softDelete/{id}', [CategoryController::class, 'softDelCat']);
+Route::get('/category/restore/{id}', [CategoryController::class, 'restoreCat']);
+Route::get('/category/pdelete/{id}', [CategoryController::class, 'permaDelete']);
