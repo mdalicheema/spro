@@ -4,6 +4,7 @@ use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -64,3 +65,10 @@ Route::get('/category/update/{id}', [CategoryController::class, 'updateCat']);
 Route::get('/category/softDelete/{id}', [CategoryController::class, 'softDelCat']);
 Route::get('/category/restore/{id}', [CategoryController::class, 'restoreCat']);
 Route::get('/category/pdelete/{id}', [CategoryController::class, 'permaDelete']);
+
+//Category Controller
+Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
+Route::post('/brand/add', [BrandController::class, 'storeBrand'])->name('brand.store');
+Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
+Route::post('/brand/update/{id}', [BrandController::class, 'update']);
+Route::get('/brand/delete/{id}', [BrandController::class, 'destroy']);
