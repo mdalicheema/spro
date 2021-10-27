@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,9 +55,11 @@ Route::middleware('lang')->group(function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // $users = User::all();
-    $users = DB::table('users')->get();
-    return view('dashboard', compact('users'));
+    // $users = DB::table('users')->get();
+    return view('admin.index');
 })->name('dashboard');
+
+Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
 
 
 //Category Controller
@@ -72,3 +77,7 @@ Route::post('/brand/add', [BrandController::class, 'storeBrand'])->name('brand.s
 Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'destroy']);
+
+//Multi Pictures 
+Route::get('/multi/images', [BrandController::class, 'multpic'])->name('all.images');
+Route::post('/multi/add', [BrandController::class, 'storeImage'])->name('image.store');

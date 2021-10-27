@@ -11,6 +11,10 @@ use Symfony\Component\CssSelector\Node\FunctionNode;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function allCat()
     {
         // $categories = DB::table('categories')

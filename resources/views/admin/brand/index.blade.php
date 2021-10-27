@@ -34,7 +34,8 @@
                                 <tr>
                                     <th>{{ ++$i }}</th>
                                     <td>{{ $brand->brand_name }}</td>
-                                    <td> <img src="{{ asset($brand->brand_image) }}" alt="no found" style="width: 70px;height: 50px"> </td>
+                                    <td> <img src="{{ asset($brand->brand_image) }}" alt="not found" style="width: 70px;height: 50px"> </td>
+                                    {{-- <td> <img src="/image/brand/{{ $brand->brand_image }}" alt="not found" style="width: 70px;height: 50px"> </td> --}}
                                     <td>
                                         @if ($brand->created_at == null)
                                             <span class="text-danger">No Data Set</span>
