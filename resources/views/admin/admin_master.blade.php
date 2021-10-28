@@ -154,7 +154,7 @@
                                     <li class="dropdown-header">
                                         <img src="{{ asset('backend/assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
                                         <div class="d-inline-block">
-                                            {{ Auth::user()->name }} <small class="pt-1">abdus@gmail.com</small>
+                                            {{ Auth::user()->name }} <small class="pt-1">ali@gmail.com</small>
                                         </div>
                                     </li>
 
@@ -200,7 +200,7 @@
                 <div class="copyright bg-white">
                     <p>
                         &copy; <span id="copy-year">2019</span> Copyright Sleek Dashboard Bootstrap Template by
-                        <a class="text-primary" href="http://www.iamabdus.com/" target="_blank">Abdus</a>.
+                        <a class="text-primary" href="http://www.alicheema.com/" target="_blank">Ali</a>.
                     </p>
                 </div>
                 <script>

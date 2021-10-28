@@ -10,7 +10,7 @@
                         <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                     </g>
                 </svg>
-                <span class="brand-name">Sleek Dashboard</span>
+                <span class="brand-name">Sahulatkar Dashboard</span>
             </a>
         </div>
         <!-- begin sidebar scrollbar -->
@@ -28,19 +28,26 @@
                     <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
                         <div class="sub-menu">
 
-                            <li class="active">
-                                <a class="sidenav-item-link" href="index.html">
-                                    <span class="nav-text">Ecommerce</span>
-
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('home.slider') }}">
+                                    <span class="nav-text">Slider</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a class="sidenav-item-link" href="analytics.html">
-                                    <span class="nav-text">Analytics</span>
-
-                                    <span class="badge badge-success">new</span>
-
+                                    <span class="nav-text">Home About</span>
+                                    {{-- <span class="badge badge-success">new</span> --}}
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="index.html">
+                                    <span class="nav-text">Home Portfolio</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('all.brand') }}">
+                                    <span class="nav-text">Home Brand</span>
                                 </a>
                             </li>
 

@@ -1,9 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            All Brand
-        </h2>
-    </x-slot>
+@extends('admin.admin_master')
+
+@section('admin')
 
     <div class="container">
         <div class="row">
@@ -12,8 +9,7 @@
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>{{ session('success') }}</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
 
@@ -34,7 +30,8 @@
                                 <tr>
                                     <th>{{ ++$i }}</th>
                                     <td>{{ $brand->brand_name }}</td>
-                                    <td> <img src="{{ asset($brand->brand_image) }}" alt="not found" style="width: 70px;height: 50px"> </td>
+                                    <td> <img src="{{ asset($brand->brand_image) }}" alt="not found"
+                                            style="width: 70px;height: 50px"> </td>
                                     {{-- <td> <img src="/image/brand/{{ $brand->brand_image }}" alt="not found" style="width: 70px;height: 50px"> </td> --}}
                                     <td>
                                         @if ($brand->created_at == null)
@@ -46,8 +43,8 @@
                                     <td colspan="2">
                                         <a href="{{ url('brand/edit/' . $brand->id) }}"
                                             class="btn btn-small btn-primary">Edit</a>
-                                        <a href="{{ url('brand/delete/' . $brand->id) }}"
-                                            class="btn btn-small btn-danger" onclick="return confirm('Are you sure you want delete!')">Delete</a>
+                                        <a href="{{ url('brand/delete/' . $brand->id) }}" class="btn btn-small btn-danger"
+                                            onclick="return confirm('Are you sure you want delete!')">Delete</a>
                                         {{-- <form action="{{ url('brand/delete/'.$brand->id) }}" method="post">
                                             <button type="submit" class="btn-sm btn-danger">Delete</a>
                                         </form> --}}
@@ -98,4 +95,4 @@
         </div>
 
     </div>
-</x-app-layout>
+@endsection
