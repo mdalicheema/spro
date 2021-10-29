@@ -1,7 +1,7 @@
 @php
     
     $sliders = DB::table('sliders')->get();
-
+    $about = DB::table('abouts')->first();
 @endphp
 
 <!-- ======= Hero Section ======= -->
@@ -40,3 +40,4 @@
 
     </div>
 </section><!-- End Hero -->
+

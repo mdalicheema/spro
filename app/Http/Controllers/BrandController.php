@@ -128,8 +128,7 @@ class BrandController extends Controller
     //multipics functions 
     public function multpic()
     {
-        $images = Multipics::all();
-        return view('admin.multipic.index', compact('images'));
+        return view('admin.multipic.index');
     }
 
     public function storeImage(Request $request)

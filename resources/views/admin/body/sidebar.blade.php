@@ -35,19 +35,24 @@
                             </li>
 
                             <li>
-                                <a class="sidenav-item-link" href="analytics.html">
+                                <a class="sidenav-item-link" href="{{ route('admin.about') }}">
                                     <span class="nav-text">Home About</span>
                                     {{-- <span class="badge badge-success">new</span> --}}
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="index.html">
+                                <a class="sidenav-item-link" href="{{ route('all.images') }}">
                                     <span class="nav-text">Home Portfolio</span>
                                 </a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a class="sidenav-item-link" href="{{ route('all.brand') }}">
                                     <span class="nav-text">Home Brand</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('admin.service') }}">
+                                    <span class="nav-text">Home Services</span>
                                 </a>
                             </li>
 

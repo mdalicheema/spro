@@ -6,6 +6,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ServiceController;
 // use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +27,9 @@ Route::get('/email/verify', function () {
 
 Route::get('/', function () {
     $brands = DB::table('brands')->latest()->paginate(5);
-    return view('home', compact('brands'));
+    $about = DB::table('abouts')->first();
+    $images = DB::table('multipics')->get();
+    return view('home', compact('brands','about','images'));
 });
 
 Route::get('/set', [ContactController::class, 'index']);
@@ -80,7 +84,7 @@ Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'destroy']);
 
-//Multi Pictures 
+//Admin Multi Pictures 
 Route::get('/multi/images', [BrandController::class, 'multpic'])->name('all.images');
 Route::post('/multi/add', [BrandController::class, 'storeImage'])->name('image.store');
 
@@ -91,4 +95,26 @@ Route::post('/slider/store', [HomeController::class, 'store'])->name('slider.sto
 Route::get('/slider/edit/{id}', [HomeController::class, 'edit']);
 Route::post('/slider/update/{id}', [HomeController::class, 'update'])->name('slider.update');
 Route::get('/slider/delete/{id}', [HomeController::class, 'destroy']);
+
+//Admin About Us
+Route::get('/admin/about', [AboutController::class, 'aboutIndex'])->name('admin.about');
+Route::get('/about/create', [AboutController::class, 'aboutCreate'])->name('about.add');
+Route::post('/about/store', [AboutController::class, 'aboutStore'])->name('about.store');
+Route::get('/about/edit/{id}', [AboutController::class, 'aboutEdit']);
+Route::post('/about/update/{id}', [AboutController::class, 'aboutUpdate']);
+Route::get('/about/delete/{id}', [AboutController::class, 'destroy']);
+
+//Admin Services
+Route::get('/admin/service', [ServiceController::class, 'index'])->name('admin.service');
+Route::get('/service/create', [ServiceController::class, 'create'])->name('service.add');
+Route::post('/service/store', [ServiceController::class, 'store'])->name('service.store');
+Route::get('/service/edit/{id}', [ServiceController::class, 'edit']);
+Route::post('/service/update/{id}', [ServiceController::class, 'update']);
+Route::get('/service/delete/{id}', [ServiceController::class, 'destroy']);
+
+//All Dynamic Pages Route
+Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/portfolio', [AboutController::class, 'portfolio'])->name('portfolio');
+
+
 
