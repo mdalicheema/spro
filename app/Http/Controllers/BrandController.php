@@ -104,13 +104,13 @@ class BrandController extends Controller
             Brand::find($id)->update([
                 'brand_name' => $request->brand_name,
                 'brand_image' => $last_img,
-                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
             return redirect()->back()->with('success', 'Brand Updated Successfuly!');
         } else {
             Brand::find($id)->update([
                 'brand_name' => $request->brand_name,
-                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
             return redirect()->back()->with('success', 'Brand Updated Successfuly!');
         }
@@ -145,6 +145,7 @@ class BrandController extends Controller
 
             Multipics::insert([
                 'image' => $last_img,
+                'created_at' => Carbon::now(),
                 'created_at' => Carbon::now(),
             ]);
         }

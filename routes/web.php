@@ -28,8 +28,9 @@ Route::get('/email/verify', function () {
 Route::get('/', function () {
     $brands = DB::table('brands')->latest()->paginate(5);
     $about = DB::table('abouts')->first();
+    $services = DB::table('services')->first();
     $images = DB::table('multipics')->get();
-    return view('home', compact('brands','about','images'));
+    return view('home', compact('brands','about','images', 'services'));
 });
 
 Route::get('/set', [ContactController::class, 'index']);
@@ -105,7 +106,7 @@ Route::post('/about/update/{id}', [AboutController::class, 'aboutUpdate']);
 Route::get('/about/delete/{id}', [AboutController::class, 'destroy']);
 
 //Admin Services
-Route::get('/admin/service', [ServiceController::class, 'index'])->name('admin.service');
+Route::get('/admin/service', [ServiceController::class, 'index'])->name('addser');
 Route::get('/service/create', [ServiceController::class, 'create'])->name('service.add');
 Route::post('/service/store', [ServiceController::class, 'store'])->name('service.store');
 Route::get('/service/edit/{id}', [ServiceController::class, 'edit']);
@@ -115,6 +116,17 @@ Route::get('/service/delete/{id}', [ServiceController::class, 'destroy']);
 //All Dynamic Pages Route
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/portfolio', [AboutController::class, 'portfolio'])->name('portfolio');
+Route::get('/service', [ServiceController::class, 'service'])->name('service');
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact');
 
+//Contact 
+Route::get('/admin/contact', [ContactController::class, 'AdminContact'])->name('admin.contact');
+Route::get('/contact/create', [ContactController::class, 'create'])->name('contact.add');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/contact/edit/{id}', [ContactController::class, 'edit']);
+Route::post('/contact/update/{id}', [ContactController::class, 'update']);
+Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
 
+//Contact Form
+Route::post('/contact/store', [ContactController::class, 'ContactForm'])->name('contact.store');
 

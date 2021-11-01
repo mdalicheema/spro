@@ -38,6 +38,7 @@ class AboutController extends Controller
             'short_info' => $request->short_info,
             'long_info' => $request->long_info,
             'created_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
         ]);
         return redirect()->route('admin.about')->with('success', 'About added Successfuly!');
     }

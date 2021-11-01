@@ -1,11 +1,7 @@
 @extends('layouts.master_home')
 
 @section('home_content')
-    <br />
-    <br />
-    @php
-    $images = DB::table('multipics')->get();
-    @endphp
+    
 
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
@@ -35,8 +31,8 @@
                   </svg>
                   <i class="bx bxl-dribbble"></i>
                 </div>
-                <h4><a href="">Lorem Ipsum</a></h4>
-                <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                <h4><a href="">{{ $services->dribbble }}</a></h4>
+                <p>{{ $services->dribbble_des }}</p>
               </div>
             </div>
   
@@ -48,8 +44,8 @@
                   </svg>
                   <i class="bx bx-file"></i>
                 </div>
-                <h4><a href="">Sed Perspiciatis</a></h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                <h4><a href="">{{ $services->file }}</a></h4>
+                <p>{{ $services->file_des }}</p>
               </div>
             </div>
   
@@ -61,8 +57,8 @@
                   </svg>
                   <i class="bx bx-tachometer"></i>
                 </div>
-                <h4><a href="">Magni Dolores</a></h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                <h4><a href="">{{ $services->tachometer }}</a></h4>
+                <p>{{ $services->tachometer_des }}</p>
               </div>
             </div>
   
@@ -74,8 +70,8 @@
                   </svg>
                   <i class="bx bx-layer"></i>
                 </div>
-                <h4><a href="">Nemo Enim</a></h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                <h4><a href="">{{ $services->layer }}</a></h4>
+                <p>{{ $services->layer_des }}</p>
               </div>
             </div>
   
@@ -87,8 +83,8 @@
                   </svg>
                   <i class="bx bx-slideshow"></i>
                 </div>
-                <h4><a href="">Dele Cardo</a></h4>
-                <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+                <h4><a href="">{{ $services->slideshow }}</a></h4>
+                <p>{{ $services->slideshow_des }}</p>
               </div>
             </div>
   
@@ -100,8 +96,8 @@
                   </svg>
                   <i class="bx bx-arch"></i>
                 </div>
-                <h4><a href="">Divera Don</a></h4>
-                <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+                <h4><a href="">{{ $services->arch }}</a></h4>
+                <p>{{ $services->arch_des }}</p>
               </div>
             </div>
   
@@ -116,80 +112,80 @@
   
           <div class="section-title">
             <h2>Features</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <p>{{ $services->short_info }}.</p>
           </div>
   
           <div class="row">
             <div class="col-lg-3 col-md-4">
               <div class="icon-box">
                 <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                <h3><a href="">Lorem Ipsum</a></h3>
+                <h3><a href="">{{ $services->slideshow }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
               <div class="icon-box">
                 <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                <h3><a href="">Dolor Sitema</a></h3>
+                <h3><a href="">{{ $services->arch }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
               <div class="icon-box">
                 <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                <h3><a href="">Sed perspiciatis</a></h3>
+                <h3><a href="">{{ $services->dribbble }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
               <div class="icon-box">
                 <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                <h3><a href="">Magni Dolores</a></h3>
+                <h3><a href="">{{ $services->file }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                <h3><a href="">Nemo Enim</a></h3>
+                <h3><a href="">{{ $services->dribbble }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                <h3><a href="">Eiusmod Tempor</a></h3>
+                <h3><a href="">{{ $services->tachometer }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                <h3><a href="">Midela Teren</a></h3>
+                <h3><a href="">{{ $services->layer }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-                <h3><a href="">Pira Neve</a></h3>
+                <h3><a href="">{{ $services->dribbble }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-anchor-line" style="color: #b2904f;"></i>
-                <h3><a href="">Dirada Pack</a></h3>
+                <h3><a href="">{{ $services->slideshow }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-disc-line" style="color: #b20969;"></i>
-                <h3><a href="">Moton Ideal</a></h3>
+                <h3><a href="">{{ $services->file }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-base-station-line" style="color: #ff5828;"></i>
-                <h3><a href="">Verdo Park</a></h3>
+                <h3><a href="">{{ $services->dribbble }}</a></h3>
               </div>
             </div>
             <div class="col-lg-3 col-md-4 mt-4">
               <div class="icon-box">
                 <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-                <h3><a href="">Flavor Nivelanda</a></h3>
+                <h3><a href="">{{ $services->arch }}</a></h3>
               </div>
             </div>
           </div>

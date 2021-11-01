@@ -18,6 +18,16 @@ class ServiceController extends Controller
         return view('admin.portfolio.service', compact('services'));
     }
 
+    public function service(){
+        $services = Service::first();
+        return view('pages.service', compact('services'));
+    }
+
+    public function serviceHome(){
+        $services = Service::first();
+        return view('pages.service', compact('services'));
+    }
+
     public function create(){
         return view('admin.service.add');
     }
@@ -57,7 +67,7 @@ class ServiceController extends Controller
             'short_info' => $request->short_info,
             'dribbble' => $request->dribbble,
             'dribbble_des' => $request->dribbble_des,
-            'file' => $request->namfilee,
+            'file' => $request->file,
             'file_des' => $request->file_des,
             'tachometer' => $request->tachometer,
             'tachometer_des' => $request->tachometer_des,
@@ -68,8 +78,9 @@ class ServiceController extends Controller
             'arch' => $request->arch,
             'arch_des' => $request->arch_des,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
-        return redirect()->route('admin.service')->with('success', 'Service Deleted Successfuly!');
+        return redirect()->route('addser')->with('success', 'Service Added Successfuly!');
     }
 
     public function edit($id){
@@ -113,7 +124,7 @@ class ServiceController extends Controller
             'short_info' => $request->short_info,
             'dribbble' => $request->dribbble,
             'dribbble_des' => $request->dribbble_des,
-            'file' => $request->namfilee,
+            'file' => $request->file,
             'file_des' => $request->file_des,
             'tachometer' => $request->tachometer,
             'tachometer_des' => $request->tachometer_des,
@@ -123,14 +134,14 @@ class ServiceController extends Controller
             'slideshow_des' => $request->slideshow_des,
             'arch' => $request->arch,
             'arch_des' => $request->arch_des,
-            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
-        return redirect()->route('admin.service')->with('success', 'Service Deleted Successfuly!');
+        return redirect()->route('addser')->with('success', 'Service Updated Successfuly!');
     }
 
     public function destroy($id){
-        Service::find($id);
-        return redirect()->route('admin.service')->with('success', 'Service Deleted Successfuly!');
+        Service::find($id)->delete();
+        return redirect()->route('addser')->with('success', 'Service Deleted Successfuly!');
     }
 }

@@ -11,7 +11,7 @@
                         <h4>Home About</h4>
                     </div>
                     <div>
-                        <a class="btn btn-primary" href="{{ route('service.add') }}">Add Service</a>
+                        <a class="btn btn-primary" href="{{ route('contact.add') }}">Add Contact</a>
                     </div>
                 </div>
                 <div class="card">
@@ -30,50 +30,29 @@
                                     <th >SL No#</th>
                                     <th>Short Summary</th>
                                     <th >Dribbble</th>
-                                    <th >Dribbble Des.</th>
-                                    <th >File</th>
-                                    <th >File Des.</th>
-                                    <th >Tachometer</th>
-                                    <th >Tachometer Des.</th>
-                                    <th >Layer</th>
-                                    <th >Layer Des.</th>
-                                    <th >Slideshow</th>
-                                    <th >Slideshow Des.</th>
-                                    <th >Arch</th>
-                                    <th >Arch Des.</th>
                                     <th >Created-At</th>
                                     <th >Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1; ?>
-                                @foreach ($services as $service)
+                                @foreach ($contacts as $contact)
                                     <tr>
                                         <th>{{ $i++ }}</th>
-                                        <td  style="max-width: 200px">{{ $service->short_info }}</td>
-                                        <td>{{ $service->dribbble }}</td>
-                                        <td>{{ $service->dribbble_des }}</td>
-                                        <td>{{ $service->file }}</td>
-                                        <td>{{ $service->file_des }}</td>
-                                        <td>{{ $service->tachometer }}</td>
-                                        <td>{{ $service->tachometer_des }}</td>
-                                        <td>{{ $service->layer }}</td>
-                                        <td>{{ $service->layer_des }}</td>
-                                        <td>{{ $service->slideshow }}</td>
-                                        <td>{{ $service->slideshow_des }}</td>
-                                        <td>{{ $service->arch }}</td>
-                                        <td>{{ $service->arch_des }}</td>
+                                        <td  style="max-width: 200px">{{ $contact->address }}</td>
+                                        <td>{{ $contact->email }}</td>
+                                        <td>{{ $contact->phone }}</td>
                                         <td>
-                                            @if ($service->created_at == null)
+                                            @if ($contact->created_at == null)
                                                 <span class="text-danger">No Data Set</span>
                                             @else
-                                                {{ Carbon\Carbon::parse($service->created_at)->diffForHumans() }}
+                                                {{ Carbon\Carbon::parse($contact->created_at)->diffForHumans() }}
                                             @endif
                                         </td>
                                         <td colspan="2">
-                                            <a href="{{ url('service/edit/' . $service->id) }}"
+                                            <a href="{{ url('contact/edit/' . $contact->id) }}"
                                                 class="btn btn-small btn-primary">Edit</a>
-                                            <a href="{{ url('service/delete/' . $service->id) }}"
+                                            <a href="{{ url('contact/delete/' . $contact->id) }}"
                                                 class="btn btn-small btn-danger"
                                                 onclick="return confirm('Are you sure you want delete!')">Delete</a>
 

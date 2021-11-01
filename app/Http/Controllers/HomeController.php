@@ -54,6 +54,7 @@ class HomeController extends Controller
             'description' => $request->description,
             'image' => $last_img,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         return redirect()->route('home.slider')->with('success', 'Slider Created Successfuly!');
     }
@@ -98,7 +99,7 @@ class HomeController extends Controller
             Slider::find($id)->update([
                 'title' => $request->title,
                 'description' => $request->description,
-                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
             return redirect()->route('home.slider')->with('success', 'Slider Updated Successfuly!');
         }

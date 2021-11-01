@@ -35,7 +35,7 @@
 
             <div class="section-title">
                 <h2>Services</strong></h2>
-                <p>Laborum repudiandae omnis voluptatum consequatur mollitia ea est voluptas ut</p>
+                <p>{{ $services->short_info }}</p>
             </div>
 
             <div class="row">
@@ -49,8 +49,8 @@
                             </svg>
                             <i class="bx bxl-dribbble"></i>
                         </div>
-                        <h4><a href="">Lorem Ipsum</a></h4>
-                        <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                        <h4><a href="">{{ $services->dribbble }}</a></h4>
+                        <p>{{ $services->dribbble_des }}</p>
                     </div>
                 </div>
 
@@ -65,8 +65,8 @@
                             </svg>
                             <i class="bx bx-file"></i>
                         </div>
-                        <h4><a href="">Sed Perspiciatis</a></h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                        <h4><a href="">{{ $services->file }}</a></h4>
+                        <p>{{ $services->file_des }}</p>
                     </div>
                 </div>
 
@@ -81,8 +81,8 @@
                             </svg>
                             <i class="bx bx-tachometer"></i>
                         </div>
-                        <h4><a href="">Magni Dolores</a></h4>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                        <h4><a href="">{{ $services->tachometer }}</a></h4>
+                        <p>{{ $services->tachometer_des }}</p>
                     </div>
                 </div>
 
@@ -96,8 +96,8 @@
                             </svg>
                             <i class="bx bx-layer"></i>
                         </div>
-                        <h4><a href="">Nemo Enim</a></h4>
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                        <h4><a href="">{{ $services->layer }}</a></h4>
+                        <p>{{ $services->layer_des }}</p>
                     </div>
                 </div>
 
@@ -111,8 +111,8 @@
                             </svg>
                             <i class="bx bx-slideshow"></i>
                         </div>
-                        <h4><a href="">Dele Cardo</a></h4>
-                        <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+                        <h4><a href="">{{ $services->slideshow }}</a></h4>
+                        <p>{{ $services->slideshow_des }}</p>
                     </div>
                 </div>
 
@@ -126,8 +126,8 @@
                             </svg>
                             <i class="bx bx-arch"></i>
                         </div>
-                        <h4><a href="">Divera Don</a></h4>
-                        <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+                        <h4><a href="">{{ $services->arch }}</a></h4>
+                        <p>{{ $services->arch_des }}</p>
                     </div>
                 </div>
 

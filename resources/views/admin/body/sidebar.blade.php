@@ -51,8 +51,28 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="sidenav-item-link" href="{{ route('admin.service') }}">
+                                <a class="sidenav-item-link" href="{{ url('/admin/service') }}">
                                     <span class="nav-text">Home Services</span>
+                                </a>
+                            </li>
+
+                        </div>
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
+                        aria-expanded="false" aria-controls="charts">
+                        <i class="mdi mdi-chart-pie"></i>
+                        <span class="nav-text">Charts</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="charts" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+
+                            <li>
+                                <a class="sidenav-item-link" href=" {{ route('admin.contact') }} ">
+                                    <span class="nav-text">ChartJS</span>
+
                                 </a>
                             </li>
 

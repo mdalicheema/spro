@@ -47,6 +47,7 @@ class CategoryController extends Controller
             'category_name' => $request->category_name,
             'user_id' => Auth::user()->id,
             'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         // $category = new Category();
         // $category->category_name = $request->category_name;
@@ -81,7 +82,8 @@ class CategoryController extends Controller
             );
             $update->update([
             'category_name' => $request->category_name,
-            'user_id' => Auth::user()->id
+            'user_id' => Auth::user()->id,
+            'updated_at' => Carbon::now(),
         ]);
 
         // <-- Query Builder -->
