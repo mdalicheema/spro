@@ -69,9 +69,10 @@
                                         href="https://api.whatsapp.com/send?phone=923047862125&text=&source=&data=">{{ $contacts->phone }}</a>
                                 </p>
                             </div>
-
+                            
                             <div class="col-lg-4 info mt-4 mt-lg-0">
                                 <i class="icofont-phone"></i>
+                                {{-- <i class="fa fa-skype" aria-hidden="true"></i> --}}
                                 <h4>Skype:</h4>
                                 <p><a href="skype:salar.cheema?chat">Muhammad Ali</a></p>
                             </div>

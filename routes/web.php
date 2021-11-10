@@ -8,6 +8,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ChangePassController;
+use App\Http\Controllers\PostController;
 // use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -30,6 +32,7 @@ Route::get('/', function () {
     $about = DB::table('abouts')->first();
     $services = DB::table('services')->first();
     $images = DB::table('multipics')->get();
+    $contacts = DB::table('contacts')->first();
     return view('home', compact('brands','about','images', 'services'));
 });
 
@@ -78,12 +81,16 @@ Route::get('/category/softDelete/{id}', [CategoryController::class, 'softDelCat'
 Route::get('/category/restore/{id}', [CategoryController::class, 'restoreCat']);
 Route::get('/category/pdelete/{id}', [CategoryController::class, 'permaDelete']);
 
+
 //Category Controller
 Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'storeBrand'])->name('brand.store');
 Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
 Route::post('/brand/update/{id}', [BrandController::class, 'update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'destroy']);
+
+//Admin
+Route::get('/admin', [HomeController::class, 'admin'])->name('admin');
 
 //Admin Multi Pictures 
 Route::get('/multi/images', [BrandController::class, 'multpic'])->name('all.images');
@@ -130,3 +137,16 @@ Route::get('/contact/delete/{id}', [ContactController::class, 'destroy']);
 //Contact Form
 Route::post('/contact/store', [ContactController::class, 'ContactForm'])->name('contact.store');
 
+//update password
+Route::get('/password/update', [ChangePassController::class, 'AdminPass'])->name('password.reset');
+Route::post('/password/update', [ChangePassController::class, 'AdminPassStore'])->name('password.update');
+
+//admin posts routes
+Route::get('posts', [PostController::class, 'index']);
+Route::post('post', [PostController::class, 'store'])->name('post.sotre');
+Route::put('post', [PostController::class, 'update']);
+Route::delete('post/{post_id}', [PostController::class, 'destroy']);
+
+//admin todos routes
+Route::get('/', [TodoController::class, 'index']);
+Route::resource('todo', TodoController::class);

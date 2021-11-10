@@ -40,7 +40,6 @@ class ContactController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
         return redirect()->route('admin.contact')->with('success', 'Contact Added Successfuly!');
     }
@@ -70,7 +69,7 @@ class ContactController extends Controller
             'address' => $request->address,
             'email' => $request->email,
             'phone' => $request->phone,
-            'updated_at' => Carbon::now(),
+            'created_at' => Carbon::now(),
         ]);
 
         return redirect()->route('admin.contact')->with('success', 'Contact Updated Successfuly!');
@@ -112,7 +111,6 @@ class ContactController extends Controller
             'subject' => $request->subject,
             'message' => $request->message,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
         ]);
 
         return redirect()->back()->with('success', 'Your Message Sent Successfuly!');

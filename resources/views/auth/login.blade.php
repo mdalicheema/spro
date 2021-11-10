@@ -64,8 +64,21 @@
                             </a>
                         </div>
                     </div>
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{ session('success') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{ session('error') }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="card-body p-5">
-
                         <h4 class="text-dark mb-5">Sign In</h4>
                         @if (session('status'))
                             <div class="mb-4 font-medium text-sm text-green-600">
@@ -93,7 +106,8 @@
                                             </label>
 
                                         </div>
-                                        <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your Password?</a></p>
+                                        <p><a class="text-blue" href="{{ route('password.request') }}">Forgot
+                                                Your Password?</a></p>
                                     </div>
                                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>
                                     <p>Don't have an account yet ?

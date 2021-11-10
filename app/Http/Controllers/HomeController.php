@@ -114,4 +114,8 @@ class HomeController extends Controller
         Slider::find($id)->delete();
         return redirect()->back()->with('success', 'Slider Deleted Successfuly!');
     }
+
+    public function admin(){
+        return redirect()->route('login');
+    }
 }

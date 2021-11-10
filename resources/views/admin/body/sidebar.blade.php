@@ -71,7 +71,13 @@
 
                             <li>
                                 <a class="sidenav-item-link" href=" {{ route('admin.contact') }} ">
-                                    <span class="nav-text">ChartJS</span>
+                                    <span class="nav-text">Admin Contact</span>
+
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href=" {{ route('password.update') }} ">
+                                    <span class="nav-text">Change Password</span>
 
                                 </a>
                             </li>

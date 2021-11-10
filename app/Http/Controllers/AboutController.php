@@ -7,9 +7,19 @@ use App\Models\About;
 use App\Models\Multipics;
 use App\Models\Service;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class AboutController extends Controller
 {
+    public function data()
+    {
+        // $data = DB::table('users')->get();
+        // return response()->json($data);
+        $url = 'https://jsonplaceholder.typicode.com/posts';
+        
+        return response()->json($url);
+
+    }
     public function index(){
         $about = About::first();
         return view('pages.about', compact('about'));
